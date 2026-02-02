@@ -11,7 +11,9 @@ export function Routes() {
       {isSignedIn ? (
         <AppStack />
 
-      ) : <AuthStack />}
+      ) : (
+        <AuthStack />
+      )}
     </NavigationContainer>
   )
 }

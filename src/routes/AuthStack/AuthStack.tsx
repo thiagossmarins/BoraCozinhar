@@ -11,6 +11,8 @@ const RootStack = createStackNavigator<AuthStackParamList>();
 export function AuthStack() {
 
   return (
-    <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
+    <RootStack.Navigator screenOptions={{ headerShown: false }}>
+      <RootStack.Screen name="SignUpScreen" component={SignUpScreen} />
+    </RootStack.Navigator>
   )
 }
