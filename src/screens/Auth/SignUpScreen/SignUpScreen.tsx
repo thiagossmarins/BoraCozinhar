@@ -1,4 +1,4 @@
-import { ImageBackground } from "react-native";
+import { ImageBackground, KeyboardAvoidingView, Platform } from "react-native";
 
 import { Screen, Text, Button, Box, Input } from "@components";
 import { useAppSafeArea } from "@hooks";
@@ -21,39 +21,45 @@ export function SignUpScreen() {
           height: 500
         }} />
 
-      <Box flex={1} justifyContent="flex-end" mt="xl">
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        <Box flex={1} justifyContent="flex-end" mt="xl">
 
-        <Text mb="l" variant="header">Crie sua conta</Text>
+          <Text mb="l" variant="header">Crie sua conta</Text>
 
-        <Input
-          label="Nome*"
-          placeholder="Digite seu nome"
-        />
+          <Input
+            label="Nome*"
+            placeholder="Digite seu nome"
+          />
 
-        <Input
-          label="E-mail*"
-          placeholder="Digite um e-mail"
-          autoCapitalize="none"
-        />
+          <Input
+            label="E-mail*"
+            placeholder="Digite um e-mail"
+            autoCapitalize="none"
+          />
 
-        <Input
-          label="Senha*"
-          placeholder="Digite uma senha"
-          secureTextEntry
-        />
+          <Input
+            label="Senha*"
+            placeholder="Digite uma senha"
+            secureTextEntry
+          />
 
-        <Input
-          label="Confirmar senha*"
-          placeholder="Confirme a sua senha"
-          secureTextEntry
-        />
+          <Input
+            label="Confirmar senha*"
+            placeholder="Confirme a sua senha"
+            secureTextEntry
+          />
 
-        <Box mt="xl">
-          <Button title="Criar conta agora!" />
-          <Text variant="body" textAlign="center" mt="m">Já tem uma conta? Entrar</Text>
+          <Box mt="xl">
+            <Button title="Criar conta agora!" />
+            <Text variant="body" textAlign="center" marginVertical="m">Já tem uma conta? Entrar</Text>
+          </Box>
+
         </Box>
+      </KeyboardAvoidingView>
 
-      </Box>
     </Screen>
   )
 }
