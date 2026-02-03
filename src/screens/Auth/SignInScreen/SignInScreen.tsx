@@ -1,10 +1,10 @@
 import { ImageBackground, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { AuthStackParamList } from "src/routes/AuthStack/AuthStack";
 
 import { Screen, Text, Button, Box, Input } from "@components";
 import { useAppSafeArea } from "@hooks";
+import { AuthStackParamList } from "@routes";
 
 type SignInScreenProps = NativeStackScreenProps<AuthStackParamList, 'SignInScreen'>
 
