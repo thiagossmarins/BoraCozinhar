@@ -4,7 +4,7 @@ import { AppStack } from './AppStack/AppStack'
 import { AuthStack } from './AuthStack/AuthStack';
 
 export function Routes() {
-  const isSignedIn = true;
+  const isSignedIn = false;
 
   return (
     <NavigationContainer>
