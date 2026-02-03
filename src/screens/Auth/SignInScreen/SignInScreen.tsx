@@ -1,9 +1,14 @@
-import { ImageBackground, KeyboardAvoidingView, Platform } from "react-native";
+import { ImageBackground, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native";
+
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { AuthStackParamList } from "src/routes/AuthStack/AuthStack";
 
 import { Screen, Text, Button, Box, Input } from "@components";
 import { useAppSafeArea } from "@hooks";
 
-export function SignInScreen() {
+type SignInScreenProps = NativeStackScreenProps<AuthStackParamList, 'SignInScreen'>
+
+export function SignInScreen({ navigation }: SignInScreenProps) {
   const { top, bottom } = useAppSafeArea();
 
   return (
@@ -43,7 +48,12 @@ export function SignInScreen() {
 
           <Box mt="xl">
             <Button title="Entrar agora!" />
-            <Text variant="body" textAlign="center" marginVertical="m">Não tem uma conta? Criar sua conta.</Text>
+            <Box flexDirection="row" alignItems="center" justifyContent="center">
+              <Text variant="body" textAlign="center" marginVertical="m">Não tem uma conta? </Text>
+              <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
+                <Text textDecorationLine="underline">Criar sua conta</Text>
+              </TouchableOpacity>
+            </Box>
           </Box>
 
         </Box>

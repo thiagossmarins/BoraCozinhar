@@ -1,9 +1,15 @@
-import { ImageBackground, KeyboardAvoidingView, Platform } from "react-native";
+import { Alert, ImageBackground, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native";
+
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { AuthStackParamList } from "src/routes/AuthStack/AuthStack";
 
 import { Screen, Text, Button, Box, Input } from "@components";
 import { useAppSafeArea } from "@hooks";
 
-export function SignUpScreen() {
+type SignUpScreenProps = NativeStackScreenProps<AuthStackParamList, 'SignUpScreen'>
+
+export function SignUpScreen({ navigation }: SignUpScreenProps) {
+
   const { top, bottom } = useAppSafeArea();
 
   return (
@@ -25,7 +31,7 @@ export function SignUpScreen() {
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-        <Box flex={1} justifyContent="flex-end" mt="xl">
+        <Box flex={1} justifyContent="flex-end" mt="xl" >
 
           <Text mb="l" variant="header">Crie sua conta</Text>
 
@@ -53,8 +59,13 @@ export function SignUpScreen() {
           />
 
           <Box mt="xl">
-            <Button title="Criar conta agora!" />
-            <Text variant="body" textAlign="center" marginVertical="m">Já tem uma conta? Entrar</Text>
+            <Button title="Criar conta agora!" onPress={() => Alert.alert('Conta criada com sucesso')} />
+            <Box flexDirection="row" alignItems="center" justifyContent="center">
+              <Text variant="body" textAlign="center" marginVertical="m">Já tem uma conta? </Text>
+              <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}>
+                <Text textDecorationLine="underline">Entrar</Text>
+              </TouchableOpacity>
+            </Box>
           </Box>
 
         </Box>

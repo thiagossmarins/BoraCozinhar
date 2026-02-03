@@ -2,7 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { SignUpScreen, SignInScreen } from '@screens';
 
-type AuthStackParamList = {
+export type AuthStackParamList = {
   SignUpScreen: undefined,
   SignInScreen: undefined,
 }

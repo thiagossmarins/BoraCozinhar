@@ -2,7 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { HomeScreen } from '@screens';
 
-type AppStackParamList = {
+export type AppStackParamList = {
   HomeScreen: undefined,
 }
 
@@ -13,6 +13,6 @@ export function AppStack() {
   return (
     <RootStack.Navigator screenOptions={{ headerShown: false }}>
       <RootStack.Screen name="HomeScreen" component={HomeScreen} />
-    </RootStack.Navigator >
+    </RootStack.Navigator>
   )
 }
