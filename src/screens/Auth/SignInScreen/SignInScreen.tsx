@@ -1,4 +1,4 @@
-import { Alert, ImageBackground, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native";
+import { ImageBackground, KeyboardAvoidingView, Platform, TouchableOpacity } from "react-native";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
@@ -6,10 +6,9 @@ import { Screen, Text, Button, Box, Input } from "@components";
 import { useAppSafeArea } from "@hooks";
 import { AuthStackParamList } from "@routes";
 
-type SignUpScreenProps = NativeStackScreenProps<AuthStackParamList, 'SignUpScreen'>
+type SignInScreenProps = NativeStackScreenProps<AuthStackParamList, 'SignInScreen'>
 
-export function SignUpScreen({ navigation }: SignUpScreenProps) {
-
+export function SignInScreen({ navigation }: SignInScreenProps) {
   const { top, bottom } = useAppSafeArea();
 
   return (
@@ -31,14 +30,9 @@ export function SignUpScreen({ navigation }: SignUpScreenProps) {
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-        <Box flex={1} justifyContent="flex-end" mt="xl" >
+        <Box flex={1} justifyContent="center" mt="xl">
 
-          <Text mb="l" variant="header">Crie sua conta</Text>
-
-          <Input
-            label="Nome*"
-            placeholder="Digite seu nome"
-          />
+          <Text mb="l" variant="header">Entre com sua conta</Text>
 
           <Input
             label="E-mail*"
@@ -52,18 +46,12 @@ export function SignUpScreen({ navigation }: SignUpScreenProps) {
             secureTextEntry
           />
 
-          <Input
-            label="Confirmar senha*"
-            placeholder="Confirme a sua senha"
-            secureTextEntry
-          />
-
           <Box mt="xl">
-            <Button title="Criar conta agora!" onPress={() => Alert.alert('Conta criada com sucesso')} />
+            <Button title="Entrar agora!" />
             <Box flexDirection="row" alignItems="center" justifyContent="center">
-              <Text variant="body" textAlign="center" marginVertical="m">Já tem uma conta? </Text>
-              <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}>
-                <Text textDecorationLine="underline">Entrar</Text>
+              <Text variant="body" textAlign="center" marginVertical="m">Não tem uma conta? </Text>
+              <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
+                <Text textDecorationLine="underline">Criar sua conta</Text>
               </TouchableOpacity>
             </Box>
           </Box>

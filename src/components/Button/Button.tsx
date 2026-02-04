@@ -1,7 +1,10 @@
 import { ButtonProps as RNButtonProps, TouchableOpacity } from 'react-native'
-import { Text } from '../Text/Text'
+
 import { useTheme } from '@shopify/restyle'
-import { Theme } from '../../theme/theme';
+
+import { Text } from '@components'
+import { Theme } from '@theme';
+
 
 interface ButtonProps extends RNButtonProps {
 
@@ -24,6 +27,7 @@ export function Button({ title, onPress }: ButtonProps) {
         variant='body'
         color='textPrimary'
         textAlign='center'
+        fontWeight={600}
       >
         {title}
       </Text>

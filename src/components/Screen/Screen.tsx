@@ -11,7 +11,7 @@ export function Screen({ canGoback, children }: ScreenProps) {
   const { top, bottom } = useAppSafeArea();
 
   return (
-    <Box flex={1} paddingHorizontal="m"
+    <Box flex={1} paddingHorizontal="l"
       style={{ paddingTop: top, paddingBottom: bottom }}
     >
       {children}
