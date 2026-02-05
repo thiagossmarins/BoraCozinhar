@@ -12,6 +12,7 @@ module.exports = {
         '@hooks': './src/hooks/index.ts',
         '@routes': './src/routes/index.ts',
         '@theme': './src/theme/index.ts',
+        '@domain': './src/domain/index.ts',
       }
     }]
   ]

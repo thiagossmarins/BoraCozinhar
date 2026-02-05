@@ -21,7 +21,7 @@ const palette = {
   gray: '#757575',
   grayLight: '#E8E8E8',
   white: '#FFFFFF',
-  cream: '#FFF8F0',
+  cream: '##FFFAFA',
 };
 
 export const theme = createTheme({
@@ -43,10 +43,14 @@ export const theme = createTheme({
   textVariants: {
     header: {
       fontWeight: 'bold',
-      fontSize: 34,
+      fontSize: 28,
+    },
+    subTitle: {
+      fontWeight: 'bold',
+      fontSize: 20,
     },
     body: {
-      fontSize: 15,
+      fontSize: 16,
     },
     defaults: {
       // We can define a default text variant here.

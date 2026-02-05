@@ -20,6 +20,9 @@
       ],
       "@theme": [
         "src/theme/index.ts"
+      ],
+      "@domain": [
+        "src/domain/index.ts"
       ]
     }
   },
