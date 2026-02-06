@@ -1,11 +1,11 @@
 
 
 import { useEffect, useState } from "react";
-import { Image, ScrollView, TouchableOpacity } from "react-native";
+import { Alert, Image, ScrollView, TouchableOpacity } from "react-native";
 
 import { Recipe, recipeService } from "@domain"
 
-import { Screen, Text, Box } from "@components";
+import { Screen, Text, Box, TouchableOpacityBox } from "@components";
 
 
 export function HomeScreen() {
@@ -36,11 +36,10 @@ export function HomeScreen() {
 
         <ScrollView
           horizontal
-          pagingEnabled
           showsHorizontalScrollIndicator={false}
         >
           {recipe.map(item => (
-            <Box key={item.id}
+            <TouchableOpacityBox key={item.id}
               width={200}
               borderRadius="m"
               overflow="hidden"
@@ -49,6 +48,7 @@ export function HomeScreen() {
               justifyContent="flex-start"
               backgroundColor="cardSecondaryBackground"
               marginRight="m"
+              onPress={() => Alert.alert(item.title)}
             >
               <Image
                 style={{ width: 175, height: 175, borderRadius: 8, }}
@@ -61,7 +61,7 @@ export function HomeScreen() {
                   <Text color="textSecondary">{item.prepTime}</Text>
                 </Box>
               </Box>
-            </Box>
+            </TouchableOpacityBox>
           ))}
         </ScrollView>
 
