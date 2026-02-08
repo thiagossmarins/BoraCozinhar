@@ -13,6 +13,7 @@ module.exports = {
         '@routes': './src/routes/index.ts',
         '@theme': './src/theme/index.ts',
         '@domain': './src/domain/index.ts',
+        '@assets': './src/assets/index.ts',
       }
     }]
   ]

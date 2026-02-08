@@ -6,6 +6,12 @@ async function getList(): Promise<Recipe[]> {
   return response;
 }
 
+async function getById(id: string): Promise<Recipe> {
+  const response = await recipeAPI.getById(id);
+  return response;
+}
+
 export const recipeService = {
-  getList
+  getList,
+  getById
 }

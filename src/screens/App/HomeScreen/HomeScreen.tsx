@@ -1,14 +1,17 @@
 
 
 import { useEffect, useState } from "react";
-import { Alert, Image, ScrollView, TouchableOpacity } from "react-native";
+import { Image, ScrollView, TouchableOpacity } from "react-native";
 
 import { Recipe, recipeService } from "@domain"
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { Screen, Text, Box, TouchableOpacityBox } from "@components";
+import { AppStackParamList } from "@routes";
 
+type HomeScreenProps = NativeStackScreenProps<AppStackParamList, 'HomeScreen'>
 
-export function HomeScreen() {
+export function HomeScreen({ navigation }: HomeScreenProps) {
   const [recipe, setRecipe] = useState<Recipe[]>([]);
 
   useEffect(() => {
@@ -48,7 +51,9 @@ export function HomeScreen() {
               justifyContent="flex-start"
               backgroundColor="cardSecondaryBackground"
               marginRight="m"
-              onPress={() => Alert.alert(item.title)}
+              onPress={() => navigation.navigate('RecipeScreen', {
+                recipeId: item.id
+              })}
             >
               <Image
                 style={{ width: 175, height: 175, borderRadius: 8, }}

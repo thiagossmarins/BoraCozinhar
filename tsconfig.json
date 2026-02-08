@@ -23,6 +23,9 @@
       ],
       "@domain": [
         "src/domain/index.ts"
+      ],
+      "@assets": [
+        "src/assets/index.ts"
       ]
     }
   },
